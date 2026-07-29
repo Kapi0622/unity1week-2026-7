@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// 【ステージ担当のみなさんへ】
@@ -32,13 +33,14 @@ public class DebugDamageGun : MonoBehaviour
 
         Vector2 world = cam.ScreenToWorldPoint(Input.mousePosition);
         var hits = Physics2D.OverlapCircleAll(world, radius);
+        var damagedTargets = new HashSet<IDamageable>();
 
         bool hitSomething = false;
 
         foreach (var hit in hits)
         {
             var target = hit.GetComponentInParent<IDamageable>();
-            if (target == null) continue;
+            if (target == null || !damagedTargets.Add(target)) continue;
 
             target.ApplyDamage(new DamageInfo(damageType, amount, world, Vector2.down));
             Debug.Log($"[DebugGun] {hit.name} に {amount} ダメージ（{damageType}）", hit);

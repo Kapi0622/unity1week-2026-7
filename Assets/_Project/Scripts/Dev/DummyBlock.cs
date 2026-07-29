@@ -9,7 +9,8 @@ public class DummyBlock : MonoBehaviour, IDamageable
     [SerializeField] float maxHp = 100f;
 
     float currentHp;
-
+    bool destructionRaised;
+    
     void Awake()
     {
         currentHp = maxHp;
@@ -17,11 +18,14 @@ public class DummyBlock : MonoBehaviour, IDamageable
 
     public void ApplyDamage(DamageInfo info)
     {
+        if (destructionRaised) return;
+        
         currentHp -= info.Amount;
         Debug.Log($"{name} : -{info.Amount:F0} → 残りHP {currentHp:F0}", this);
 
         if (currentHp <= 0f)
         {
+            destructionRaised = true;
             GameEvents.RaiseBlockDestroyed(10);
             Destroy(gameObject);
         }
