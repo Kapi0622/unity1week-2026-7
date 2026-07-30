@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f125bde7a91e474bb1597b6603da67a, type: 3}
+  m_Name: "\u5927\u7832"
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  displayName: "\u5927\u7832"
+  icon: {fileID: 0}
+  projectilePrefab: {fileID: 1735267521415744519, guid: a79f21c8b11cb554f8dc513308bd05cc, type: 3}
+  launchPower: 8
+  cooldown: 0.5
+  gravityScale: 1
+  damageType: 0
+  baseDamage: 50
+  referenceSpeed: 10
