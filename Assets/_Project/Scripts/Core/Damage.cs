@@ -39,3 +39,8 @@ public interface IDamageable
 {
     void ApplyDamage(DamageInfo info);
 }
+
+public interface IExplosive
+{
+    void Explode();
+}
